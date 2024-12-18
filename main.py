@@ -8,7 +8,12 @@ from tkinter import Tk, Label, Button, filedialog, StringVar, Entry
 from pydub import AudioSegment
 
 
+# block of cod for making the app functional
 
+def select_input_file():
+    file_path = filedialog.askopenfilename(filetypes=[("WAV Files","*.wav")])
+    if file_path:
+        input_file.set(file_path)
 
 
 
@@ -22,9 +27,12 @@ root = Tk()
 root.title("App to convert WAV to MP3")
 root.geometry("600x300")
 
+input_file = StringVar()
+
+
 Label(root, text="Select the WAV file:").pack(pady=5)
-Entry(root, textvariable=None, width=40).pack(pady=5)
-Button(root, text="Select the file", command=None).pack(pady=5)
+Entry(root, textvariable=input_file, width=40).pack(pady=5)
+Button(root, text="Select the file", command=select_input_file).pack(pady=5)
 
 
 Label(root, text="Select destination folder: ").pack(pady=5)
