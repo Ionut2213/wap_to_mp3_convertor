@@ -16,6 +16,12 @@ def select_input_file():
         input_file.set(file_path)
 
 
+def select_output_file():
+    folder_path = filedialog.askdirectory()
+    if folder_path:
+        output_folder.set(folder_path)
+
+
 
 
 
@@ -28,6 +34,7 @@ root.title("App to convert WAV to MP3")
 root.geometry("600x300")
 
 input_file = StringVar()
+output_folder = StringVar()
 
 
 Label(root, text="Select the WAV file:").pack(pady=5)
@@ -36,8 +43,8 @@ Button(root, text="Select the file", command=select_input_file).pack(pady=5)
 
 
 Label(root, text="Select destination folder: ").pack(pady=5)
-Entry(root, textvariable=None, width=40).pack(pady=5)
-Button(root, text="Select folder destination", command=None).pack(pady=5)
+Entry(root, textvariable=output_folder, width=40).pack(pady=5)
+Button(root, text="Select folder destination", command=select_output_file).pack(pady=5)
 
 Button(root, text="Convert", command=None).pack(pady=10)
 Label(root, textvariable=None, fg="blue").pack(pady=5)
