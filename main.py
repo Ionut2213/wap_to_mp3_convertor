@@ -22,6 +22,19 @@ root = Tk()
 root.title("App to convert WAV to MP3")
 root.geometry("600x300")
 
+Label(root, text="Select the WAV file:").pack(pady=5)
+Entry(root, textvariable=None, width=40).pack(pady=5)
+Button(root, text="Select the file", command=None).pack(pady=5)
+
+
+Label(root, text="Select destination folder: ").pack(pady=5)
+Entry(root, textvariable=None, width=40).pack(pady=5)
+Button(root, text="Select folder destination", command=None).pack(pady=5)
+
+Button(root, text="Convert", command=None).pack(pady=10)
+Label(root, textvariable=None, fg="blue").pack(pady=5)
+
+
 
 
 
